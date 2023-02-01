@@ -28,47 +28,47 @@ import lombok.Setter;
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class SettlementAccount implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id", length = 32)
-	private String id;
-
-	private String realName;
-
-	private String type;
-
-	private Boolean activated;
-
-	private Date activatedTime;
-
-	private String cardNumber;
-
-	private String bankName;
-
-	private String account;
-
-	private Date createTime;
-
-	private Boolean deletedFlag;
-
-	private Date deletedTime;
-
-	@Column(name = "member_id", length = 32)
-	private String memberId;
-
-	@NotFound(action = NotFoundAction.IGNORE)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "member_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-	private Member member;
-
-	public void deleted() {
-		this.setDeletedFlag(true);
-		this.setDeletedTime(new Date());
-	}
-
+    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @Column(name = "id", length = 32)
+    private String id;
+    
+    private String realName;
+    
+    private String type;
+    
+    private Boolean activated;
+    
+    private Date activatedTime;
+    
+    private String cardNumber;
+    
+    private String bankName;
+    
+    private String account;
+    
+    private Date createTime;
+    
+    private Boolean deletedFlag;
+    
+    private Date deletedTime;
+    
+    @Column(name = "member_id", length = 32)
+    private String memberId;
+    
+    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Member member;
+    
+    public void deleted() {
+        this.setDeletedFlag(true);
+        this.setDeletedTime(new Date());
+    }
+    
 }

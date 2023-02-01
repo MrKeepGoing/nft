@@ -31,59 +31,59 @@ import lombok.Setter;
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class WithdrawRecord implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id", length = 32)
-	private String id;
-
-	private String orderNo;
-
-	private Double amount;
-
-	private Double handlingFee;
-
-	private Double toTheAccount;
-
-	private Date submitTime;
-
-	private String state;
-
-	private String note;
-
-	private Date dealTime;
-
-	@Version
-	private Long version;
-
-	@Column(name = "member_id", length = 32)
-	private String memberId;
-
-	@NotFound(action = NotFoundAction.IGNORE)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "member_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-	private Member member;
-
-	@Column(name = "settlement_account_id", length = 32)
-	private String settlementAccountId;
-
-	@NotFound(action = NotFoundAction.IGNORE)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "settlement_account_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-	private SettlementAccount settlementAccount;
-
-	public void confirmCredited() {
-		this.setState(Constant.提现记录状态_已提现);
-		this.setDealTime(new Date());
-	}
-
-	public void reject() {
-		this.setState(Constant.提现记录状态_已驳回);
-		this.setDealTime(new Date());
-	}
-
+    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @Column(name = "id", length = 32)
+    private String id;
+    
+    private String orderNo;
+    
+    private Double amount;
+    
+    private Double handlingFee;
+    
+    private Double toTheAccount;
+    
+    private Date submitTime;
+    
+    private String state;
+    
+    private String note;
+    
+    private Date dealTime;
+    
+    @Version
+    private Long version;
+    
+    @Column(name = "member_id", length = 32)
+    private String memberId;
+    
+    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Member member;
+    
+    @Column(name = "settlement_account_id", length = 32)
+    private String settlementAccountId;
+    
+    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "settlement_account_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private SettlementAccount settlementAccount;
+    
+    public void confirmCredited() {
+        this.setState(Constant.提现记录状态_已提现);
+        this.setDealTime(new Date());
+    }
+    
+    public void reject() {
+        this.setState(Constant.提现记录状态_已驳回);
+        this.setDealTime(new Date());
+    }
+    
 }

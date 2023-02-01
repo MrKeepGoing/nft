@@ -16,13 +16,13 @@ import com.zengtengpeng.annotation.EnableMQ;
 @EnableCache(value = {})
 @EnableMQ
 public class AdminApplication implements ApplicationRunner {
-
-	public static void main(String[] args) {
-		SpringApplication.run(AdminApplication.class, args);
-	}
-
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-	}
-
+    
+    public static void main(String[] args) {
+        SpringApplication.run(AdminApplication.class, args);
+    }
+    
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+    }
+    
 }
