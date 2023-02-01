@@ -28,12 +28,12 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "withdraw_record")
-@DynamicInsert(true)
-@DynamicUpdate(true)
+@DynamicInsert
+@DynamicUpdate
 public class WithdrawRecord implements Serializable {
     
     /**
-     *
+     *序列化
      */
     private static final long serialVersionUID = 1L;
     
