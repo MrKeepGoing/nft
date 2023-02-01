@@ -25,25 +25,25 @@ import lombok.Setter;
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class CollectionStory implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id", length = 32)
-	private String id;
-
-	private String picLink;
-
-	private Double orderNo;
-
-	@Column(name = "collection_id", length = 32)
-	private String collectionId;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "collection_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-	private Collection collection;
-
+    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @Column(name = "id", length = 32)
+    private String id;
+    
+    private String picLink;
+    
+    private Double orderNo;
+    
+    @Column(name = "collection_id", length = 32)
+    private String collectionId;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "collection_id", updatable = false, insertable = false, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Collection collection;
+    
 }
